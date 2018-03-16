@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GitTest : MonoBehaviour {
+public class Another : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +13,4 @@ public class GitTest : MonoBehaviour {
 	void Update () {
 		
 	}
-
-
 }
