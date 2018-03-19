@@ -10,9 +10,9 @@
  3. git init
  4. git remote add origin https://github.com/DelandPo/TheHidden.git
  5. git remote -v
- 6. git pull origin master
+ 6. git pull origin development
  7. Now you should have unity project on local machine
- 8. git push --set-upstream origin master
+ 8. git push --set-upstream origin development
  9. git push
  10. From Unity open the project
  
