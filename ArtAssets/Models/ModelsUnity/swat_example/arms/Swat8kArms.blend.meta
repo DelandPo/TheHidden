@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 10c632d964ce8db4e8d8aee2ad8d3fe9
+timeCreated: 1521431622
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: body
+    100004: Bolt
+    100006: dustcover
+    100008: mag
+    100010: Mesh_0011
+    100012: Mesh_0013
+    100014: Mesh_0014
+    100016: solder_mesh
+    100018: soldier_LeftArm
+    100020: soldier_LeftForeArm
+    100022: soldier_LeftHand
+    100024: soldier_LeftHandIndex1
+    100026: soldier_LeftHandIndex2
+    100028: soldier_LeftHandIndex3
+    100030: soldier_LeftHandMiddle1
+    100032: soldier_LeftHandMiddle2
+    100034: soldier_LeftHandMiddle3
+    100036: soldier_LeftHandPinky1
+    100038: soldier_LeftHandPinky2
+    100040: soldier_LeftHandPinky3
+    100042: soldier_LeftHandRing1
+    100044: soldier_LeftHandRing2
+    100046: soldier_LeftHandRing3
+    100048: soldier_LeftHandThumb1
+    100050: soldier_LeftHandThumb2
+    100052: soldier_LeftHandThumb3
+    100054: soldier_RightArm
+    100056: soldier_RightForeArm
+    100058: soldier_RightHand
+    100060: soldier_RightHandIndex1
+    100062: soldier_RightHandIndex2
+    100064: soldier_RightHandIndex3
+    100066: soldier_RightHandMiddle1
+    100068: soldier_RightHandMiddle2
+    100070: soldier_RightHandMiddle3
+    100072: soldier_RightHandPinky1
+    100074: soldier_RightHandPinky2
+    100076: soldier_RightHandPinky3
+    100078: soldier_RightHandRing1
+    100080: soldier_RightHandRing2
+    100082: soldier_RightHandRing3
+    100084: soldier_RightHandThumb1
+    100086: soldier_RightHandThumb2
+    100088: soldier_RightHandThumb3
+    100090: //RootNode
+    400000: Armature
+    400002: body
+    400004: Bolt
+    400006: dustcover
+    400008: mag
+    400010: Mesh_0011
+    400012: Mesh_0013
+    400014: Mesh_0014
+    400016: solder_mesh
+    400018: soldier_LeftArm
+    400020: soldier_LeftForeArm
+    400022: soldier_LeftHand
+    400024: soldier_LeftHandIndex1
+    400026: soldier_LeftHandIndex2
+    400028: soldier_LeftHandIndex3
+    400030: soldier_LeftHandMiddle1
+    400032: soldier_LeftHandMiddle2
+    400034: soldier_LeftHandMiddle3
+    400036: soldier_LeftHandPinky1
+    400038: soldier_LeftHandPinky2
+    400040: soldier_LeftHandPinky3
+    400042: soldier_LeftHandRing1
+    400044: soldier_LeftHandRing2
+    400046: soldier_LeftHandRing3
+    400048: soldier_LeftHandThumb1
+    400050: soldier_LeftHandThumb2
+    400052: soldier_LeftHandThumb3
+    400054: soldier_RightArm
+    400056: soldier_RightForeArm
+    400058: soldier_RightHand
+    400060: soldier_RightHandIndex1
+    400062: soldier_RightHandIndex2
+    400064: soldier_RightHandIndex3
+    400066: soldier_RightHandMiddle1
+    400068: soldier_RightHandMiddle2
+    400070: soldier_RightHandMiddle3
+    400072: soldier_RightHandPinky1
+    400074: soldier_RightHandPinky2
+    400076: soldier_RightHandPinky3
+    400078: soldier_RightHandRing1
+    400080: soldier_RightHandRing2
+    400082: soldier_RightHandRing3
+    400084: soldier_RightHandThumb1
+    400086: soldier_RightHandThumb2
+    400088: soldier_RightHandThumb3
+    400090: //RootNode
+    2100000: unnamed
+    2100002: Tex_0011_1_dds
+    2100004: Tex_0011_1_dds_001
+    2100006: Tex_0011_1_dds_002
+    2300000: body
+    2300002: Bolt
+    2300004: dustcover
+    2300006: mag
+    2300008: Mesh_0011
+    2300010: Mesh_0013
+    2300012: Mesh_0014
+    3300000: body
+    3300002: Bolt
+    3300004: dustcover
+    3300006: mag
+    3300008: Mesh_0011
+    3300010: Mesh_0013
+    3300012: Mesh_0014
+    4300000: body
+    4300002: mag
+    4300004: Mesh_0011
+    4300006: Mesh_0014
+    4300008: Mesh_0013
+    4300010: dustcover
+    4300012: Bolt
+    4300014: solder_mesh
+    7400000: Default Take
+    7400002: Armature_001_Take_002_Layer0
+    9500000: //RootNode
+    13700000: solder_mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
