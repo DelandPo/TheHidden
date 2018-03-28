@@ -37,7 +37,7 @@ public class Shooting : MonoBehaviour
     [Tooltip("Number of shots fired by the shotgun.")]
     public int shotgunShots = 8;
 
-    //Fires pistol or shotgun
+    //Fires equipped weapon
     private void fireWeapon()
     {
         if (weaponEquipped == 1) //Pistol
@@ -45,8 +45,9 @@ public class Shooting : MonoBehaviour
             RaycastHit hit;
             Vector3 hitPoint = Vector3.zero;
 
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, pistolRange))
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, pistolRange)) //Shoot raycast down the forward vector of the main camera; range is pistolRange
             {
+                //Get specs about object that was hit
                 hitPoint = hit.point;
                 Collider hitCol = hit.collider;
                 hitObject = hitCol.gameObject;
@@ -57,7 +58,7 @@ public class Shooting : MonoBehaviour
                 //Makes visual FX visible
                 if (pistolBulletImpactPrefab != null)
                 {
-                    bulletImpact = Instantiate(pistolBulletImpactPrefab, hitPoint, hitObjectRotation);
+                    bulletImpact = Instantiate(pistolBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate pistolBulletImpactPrefab at hitPoint
                     StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
                 }
             }
@@ -67,8 +68,9 @@ public class Shooting : MonoBehaviour
             RaycastHit hit;
             Vector3 hitPoint = Vector3.zero;
 
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, rifleRange))
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, rifleRange)) //Shoot raycast down the forward vector of the main camera; range is rifleRange
             {
+                //Get specs about object that was hit
                 hitPoint = hit.point;
                 Collider hitCol = hit.collider;
                 hitObject = hitCol.gameObject;
@@ -79,7 +81,7 @@ public class Shooting : MonoBehaviour
                 //Makes visual FX visible
                 if (rifleBulletImpactPrefab != null)
                 {
-                    bulletImpact = Instantiate(rifleBulletImpactPrefab, hitPoint, hitObjectRotation);
+                    bulletImpact = Instantiate(rifleBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate rifleBulletImpactPrefab at hitPoint
                     StartCoroutine(destroyVisualFX(bulletImpact, pistolBulletImpactLifetime)); //Destroys a visual effect after a delay
                 }
             }
@@ -89,6 +91,8 @@ public class Shooting : MonoBehaviour
             RaycastHit mainHit;
             Vector3 mainHitPoint;
 
+            //Shoot raycast down the forward vector of the main camera; range is shotgunRange
+            //Used as a reference for the other shotgun shots
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out mainHit, shotgunRange)) //Fire main shot
             {
                 mainHitPoint = mainHit.point;
@@ -102,15 +106,17 @@ public class Shooting : MonoBehaviour
 
                 checkRaycast(hitCol); //Check if Hidden was hit
 
-                for (int i = 0; i < shotgunShots -1; i++) //Fire other shotgun shots
+                for (int i = 0; i < shotgunShots - 1; i++) //Fire other shotgun shots (number specified by (shotgunShots - 1) to account for main shot
                 {
-                    Vector3 randomPoint = Random.insideUnitCircle * shotgunSpread;
-                    Vector3 newHitPoint = mainHitPoint + randomPoint;
+                    Vector3 randomPoint = Random.insideUnitCircle * shotgunSpread; //Calculate random point within the unit circle
+                    Vector3 newHitPoint = mainHitPoint + randomPoint; //Add the random point to the mainHitPoint
                     Vector3 hitPoint = Vector3.zero;
                     RaycastHit hit;
 
+                    //Shoot a raycast in the direction of the newHitPoint; range is shotgunRange
                     if (Physics.Raycast(Camera.main.transform.position, newHitPoint - Camera.main.transform.position, out hit, shotgunRange))
                     {
+                        //Get specs about object that was hit
                         hitPoint = hit.point;
                         hitCol = hit.collider;
                         hitObject = hitCol.gameObject;
@@ -119,7 +125,7 @@ public class Shooting : MonoBehaviour
                         //Makes visual FX visible
                         if (shotgunBulletImpactPrefab != null)
                         {
-                            bulletImpact = Instantiate(shotgunBulletImpactPrefab, hitPoint, hitObjectRotation);
+                            bulletImpact = Instantiate(shotgunBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate shotgunBulletImpactPrefab at hitPoint
                             StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
                         }
                     }
@@ -130,7 +136,7 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    //Checks if the Hidden was hit
+    //Checks if the Hidden was hit (requires that Hidden to be tagged as "Hidden"
     private void checkRaycast(Collider col)
     {
         if (col.CompareTag("Hidden"))
@@ -140,7 +146,7 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    //Destroys visual FX after specified time to clear up the scene and prevent unintened fx from showing up
+    //Destroys visual FX after specified time to clear up the scene and prevent unintended FX from showing up
     private IEnumerator destroyVisualFX(GameObject effect, float lifetime)
     {
         yield return new WaitForSeconds(lifetime);
@@ -153,9 +159,10 @@ public class Shooting : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    //Using fixed update to keep fire rate independent of player's framerate
     void FixedUpdate()
     {
+        //Fires pistol and shotgun (semiautomatic)
         if (Input.GetMouseButtonDown(0)) //Left Click
         {
             fireWeapon();
