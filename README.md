@@ -1,3 +1,5 @@
+# SE 482 Final Project
+
 # Git Setup
 
  - Install Git from https://git-scm.com/downloads
