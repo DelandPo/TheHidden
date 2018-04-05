@@ -48,6 +48,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_initialHeight;
         private AudioSource m_AudioSource;
 
+        public Animator HiddenAnimator;
+
         // Use this for initialization
         private void Start()
         {
