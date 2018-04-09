@@ -11,6 +11,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : NetworkBehaviour
     {
+        [SerializeField] public Camera m_Camera;
         [SerializeField] public bool m_IsWalking;
         [SerializeField] public bool m_Crouching;
         [SerializeField] public float m_WalkSpeed;
@@ -31,7 +32,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
-        private Camera m_Camera;
         private bool m_Jump;
         private bool m_Crouch;
         private float m_YRotation;
@@ -53,10 +53,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
+            m_Camera.enabled = false; //This disbaels the camera for the server so each local player see their own unique first perosn view
+
             if (isLocalPlayer)
             {
                 m_CharacterController = GetComponent<CharacterController>();
-                m_Camera = Camera.main;
                 m_OriginalCameraPosition = m_Camera.transform.localPosition;
                 m_FovKick.Setup(m_Camera);
                 m_HeadBob.Setup(m_Camera, m_StepInterval);
@@ -71,12 +72,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-
         // Update is called once per frame
         private void Update()
         {
             if (isLocalPlayer)
             {
+                if (!m_Camera.enabled) //Prevents camera view from being switched to the view of the player who joined last
+                {
+                    m_Camera.enabled = true;
+                }
                 RotateView();
                 // the jump state needs to read here to make sure it is not missed
                 if (!m_Jump)

@@ -21,6 +21,7 @@ public class Shooting : NetworkBehaviour
     private Quaternion hitObjectRotation;
 
     //Visual FX
+    public Camera playerCamera; //Camera attached to player prefab
     private GameObject bulletImpact;
     [Tooltip("Prefab for pistol bullet impact. Instantiated when the pistol raycast hits something.")]
     public GameObject pistolBulletImpactPrefab;
@@ -39,103 +40,101 @@ public class Shooting : NetworkBehaviour
     [Tooltip("Number of shots fired by the shotgun.")]
     public int shotgunShots = 8;
 
+    [Command]
     //Fires equipped weapon
-    private void fireWeapon()
+    private void CmdFireWeapon()
     {
-        if (isLocalPlayer)
+        if (weaponEquipped == 1) //Pistol
         {
-            if (weaponEquipped == 1) //Pistol
+            RaycastHit hit;
+            Vector3 hitPoint = Vector3.zero;
+
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, pistolRange)) //Shoot raycast down the forward vector of the main camera; range is pistolRange
             {
-                RaycastHit hit;
-                Vector3 hitPoint = Vector3.zero;
+                //Get specs about object that was hit
+                hitPoint = hit.point;
+                Collider hitCol = hit.collider;
+                hitObject = hitCol.gameObject;
+                hitObjectRotation = hitObject.transform.rotation;
 
-                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, pistolRange)) //Shoot raycast down the forward vector of the main camera; range is pistolRange
+                checkRaycast(hitCol); //Check if Hidden was hit
+
+                //Makes visual FX visible
+                if (pistolBulletImpactPrefab != null)
                 {
-                    //Get specs about object that was hit
-                    hitPoint = hit.point;
-                    Collider hitCol = hit.collider;
-                    hitObject = hitCol.gameObject;
-                    hitObjectRotation = hitObject.transform.rotation;
-
-                    checkRaycast(hitCol); //Check if Hidden was hit
-
-                    //Makes visual FX visible
-                    if (pistolBulletImpactPrefab != null)
-                    {
-                        bulletImpact = Instantiate(pistolBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate pistolBulletImpactPrefab at hitPoint
-                        StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
-                    }
+                    bulletImpact = Instantiate(pistolBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate pistolBulletImpactPrefab at hitPoint
+                    StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
                 }
             }
-            else if (weaponEquipped == 2) //Rifle
+        }
+        else if (weaponEquipped == 2) //Rifle
+        {
+            RaycastHit hit;
+            Vector3 hitPoint = Vector3.zero;
+
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, rifleRange)) //Shoot raycast down the forward vector of the player camera; range is rifleRange
             {
-                RaycastHit hit;
-                Vector3 hitPoint = Vector3.zero;
+                //Get specs about object that was hit
+                hitPoint = hit.point;
+                Collider hitCol = hit.collider;
+                hitObject = hitCol.gameObject;
+                hitObjectRotation = hitObject.transform.rotation;
 
-                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, rifleRange)) //Shoot raycast down the forward vector of the main camera; range is rifleRange
+                checkRaycast(hitCol); //Check if Hidden was hit
+
+                //Makes visual FX visible
+                if (rifleBulletImpactPrefab != null)
                 {
-                    //Get specs about object that was hit
-                    hitPoint = hit.point;
-                    Collider hitCol = hit.collider;
-                    hitObject = hitCol.gameObject;
-                    hitObjectRotation = hitObject.transform.rotation;
-
-                    checkRaycast(hitCol); //Check if Hidden was hit
-
-                    //Makes visual FX visible
-                    if (rifleBulletImpactPrefab != null)
-                    {
-                        bulletImpact = Instantiate(rifleBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate rifleBulletImpactPrefab at hitPoint
-                        StartCoroutine(destroyVisualFX(bulletImpact, pistolBulletImpactLifetime)); //Destroys a visual effect after a delay
-                    }
+                    bulletImpact = Instantiate(rifleBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate rifleBulletImpactPrefab at hitPoint
+                    StartCoroutine(destroyVisualFX(bulletImpact, pistolBulletImpactLifetime)); //Destroys a visual effect after a delay
                 }
             }
-            else if (weaponEquipped == 3) //Shoots multiple raycasts for shotgun 
+        }
+        else if (weaponEquipped == 3) //Shoots multiple raycasts for shotgun 
+        {
+            RaycastHit mainHit;
+            Vector3 mainHitPoint;
+
+            //Shoot raycast down the forward vector of the player camera; range is shotgunRange
+            //Used as a reference for the other shotgun shots
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out mainHit, shotgunRange)) //Fire main shot
             {
-                RaycastHit mainHit;
-                Vector3 mainHitPoint;
+                mainHitPoint = mainHit.point;
+                Collider hitCol = mainHit.collider;
+                hitObject = hitCol.gameObject;
+                hitObjectRotation = hitObject.transform.rotation;
 
-                //Shoot raycast down the forward vector of the main camera; range is shotgunRange
-                //Used as a reference for the other shotgun shots
-                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out mainHit, shotgunRange)) //Fire main shot
+                //Makes visual FX visible
+                bulletImpact = Instantiate(shotgunBulletImpactPrefab, mainHitPoint, hitObjectRotation);
+                StartCoroutine(destroyVisualFX(bulletImpact, rifleBulletImpactLifetime)); //Destroys a visual effect after a delay
+
+                checkRaycast(hitCol); //Check if Hidden was hit
+
+                for (int i = 0; i < shotgunShots - 1; i++) //Fire other shotgun shots (number specified by (shotgunShots - 1) to account for main shot
                 {
-                    mainHitPoint = mainHit.point;
-                    Collider hitCol = mainHit.collider;
-                    hitObject = hitCol.gameObject;
-                    hitObjectRotation = hitObject.transform.rotation;
+                    Vector3 randomPoint = Random.insideUnitCircle * shotgunSpread; //Calculate random point within the unit circle
+                    Vector3 newHitPoint = mainHitPoint + randomPoint; //Add the random point to the mainHitPoint
+                    Vector3 hitPoint = Vector3.zero;
+                    RaycastHit hit;
 
-                    //Makes visual FX visible
-                    bulletImpact = Instantiate(shotgunBulletImpactPrefab, mainHitPoint, hitObjectRotation);
-                    StartCoroutine(destroyVisualFX(bulletImpact, rifleBulletImpactLifetime)); //Destroys a visual effect after a delay
-
-                    checkRaycast(hitCol); //Check if Hidden was hit
-
-                    for (int i = 0; i < shotgunShots - 1; i++) //Fire other shotgun shots (number specified by (shotgunShots - 1) to account for main shot
+                    //Shoot a raycast in the direction of the newHitPoint; range is shotgunRange
+                    if (Physics.Raycast(playerCamera.transform.position, newHitPoint - playerCamera.transform.position, out hit, shotgunRange))
                     {
-                        Vector3 randomPoint = Random.insideUnitCircle * shotgunSpread; //Calculate random point within the unit circle
-                        Vector3 newHitPoint = mainHitPoint + randomPoint; //Add the random point to the mainHitPoint
-                        Vector3 hitPoint = Vector3.zero;
-                        RaycastHit hit;
+                        //Get specs about object that was hit
+                        hitPoint = hit.point;
+                        hitCol = hit.collider;
+                        hitObject = hitCol.gameObject;
+                        hitObjectRotation = hitObject.transform.rotation;
 
-                        //Shoot a raycast in the direction of the newHitPoint; range is shotgunRange
-                        if (Physics.Raycast(Camera.main.transform.position, newHitPoint - Camera.main.transform.position, out hit, shotgunRange))
+                        //Makes visual FX visible
+                        if (shotgunBulletImpactPrefab != null)
                         {
-                            //Get specs about object that was hit
-                            hitPoint = hit.point;
-                            hitCol = hit.collider;
-                            hitObject = hitCol.gameObject;
-                            hitObjectRotation = hitObject.transform.rotation;
-
-                            //Makes visual FX visible
-                            if (shotgunBulletImpactPrefab != null)
-                            {
-                                bulletImpact = Instantiate(shotgunBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate shotgunBulletImpactPrefab at hitPoint
-                                StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
-                            }
+                            bulletImpact = Instantiate(shotgunBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate shotgunBulletImpactPrefab at hitPoint
+                            StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
                         }
-
-                        checkRaycast(hitCol); //Check if Hidden was hit
                     }
+
+                    checkRaycast(hitCol); //Check if Hidden was hit
                 }
             }
         }
@@ -144,29 +143,19 @@ public class Shooting : NetworkBehaviour
     //Checks if the Hidden was hit (requires that Hidden to be tagged as "Hidden"
     private void checkRaycast(Collider col)
     {
-        if (isLocalPlayer)
+        if (col.CompareTag("Hidden"))
         {
-            if (col.CompareTag("Hidden"))
-            {
-                //Damage Hidden
-                Debug.Log("Damaged the Hidden");
-            }
+            //Damage Hidden
+            Debug.Log("Damaged the Hidden");
         }
     }
 
     //Destroys visual FX after specified time to clear up the scene and prevent unintended FX from showing up
     private IEnumerator destroyVisualFX(GameObject effect, float lifetime)
     {
-        if (isLocalPlayer)
-        {
-            yield return new WaitForSeconds(lifetime);
+        yield return new WaitForSeconds(lifetime);
 
-            Destroy(effect);
-        }
-        else
-        {
-            yield return null;
-        }
+        Destroy(effect);
     }
 
     void Start()
@@ -182,11 +171,11 @@ public class Shooting : NetworkBehaviour
             //Fires pistol and shotgun (semiautomatic)
             if (Input.GetMouseButtonDown(0)) //Left Click
             {
-                fireWeapon();
+                CmdFireWeapon();
             }
             if (Input.GetMouseButton(0) && weaponEquipped == 2) //Left mouse button down && the rifle is equipped (automatic fire)
             {
-                fireWeapon();
+                CmdFireWeapon();
             }
         }
     }
