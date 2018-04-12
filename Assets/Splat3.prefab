@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4129925287865772}
   - component: {fileID: 33173798341343858}
   - component: {fileID: 23276726910511256}
+  - component: {fileID: 114354675370949384}
+  - component: {fileID: 114227347655029688}
   m_Layer: 0
   m_Name: Splat3
   m_TagString: Untagged
@@ -82,3 +84,56 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1717178359529914}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114227347655029688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1717178359529914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114354675370949384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1717178359529914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 36
+    i1: 111
+    i2: 220
+    i3: 193
+    i4: 35
+    i5: 180
+    i6: 29
+    i7: 132
+    i8: 121
+    i9: 126
+    i10: 47
+    i11: 171
+    i12: 70
+    i13: 45
+    i14: 49
+    i15: 46
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
