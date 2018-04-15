@@ -63,7 +63,7 @@ public class Shooting : NetworkBehaviour
                 if (pistolBulletImpactPrefab != null)
                 {
                     bulletImpact = Instantiate(pistolBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate pistolBulletImpactPrefab at hitPoint
-                    StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
+                    StartCoroutine(destroyVisualFX(bulletImpact, pistolBulletImpactLifetime)); //Destroys a visual effect after a delay
                 }
             }
         }
@@ -86,7 +86,7 @@ public class Shooting : NetworkBehaviour
                 if (rifleBulletImpactPrefab != null)
                 {
                     bulletImpact = Instantiate(rifleBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate rifleBulletImpactPrefab at hitPoint
-                    StartCoroutine(destroyVisualFX(bulletImpact, pistolBulletImpactLifetime)); //Destroys a visual effect after a delay
+                    StartCoroutine(destroyVisualFX(bulletImpact, rifleBulletImpactLifetime)); //Destroys a visual effect after a delay
                 }
             }
         }
@@ -106,7 +106,7 @@ public class Shooting : NetworkBehaviour
 
                 //Makes visual FX visible
                 bulletImpact = Instantiate(shotgunBulletImpactPrefab, mainHitPoint, hitObjectRotation);
-                StartCoroutine(destroyVisualFX(bulletImpact, rifleBulletImpactLifetime)); //Destroys a visual effect after a delay
+                StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
 
                 checkRaycast(hitCol); //Check if Hidden was hit
 
