@@ -64,6 +64,7 @@ public class Shooting : NetworkBehaviour
                 {
                     bulletImpact = Instantiate(pistolBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate pistolBulletImpactPrefab at hitPoint
                     StartCoroutine(destroyVisualFX(bulletImpact, pistolBulletImpactLifetime)); //Destroys a visual effect after a delay
+                    NetworkServer.Spawn(bulletImpact);
                 }
             }
         }
@@ -87,6 +88,7 @@ public class Shooting : NetworkBehaviour
                 {
                     bulletImpact = Instantiate(rifleBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate rifleBulletImpactPrefab at hitPoint
                     StartCoroutine(destroyVisualFX(bulletImpact, rifleBulletImpactLifetime)); //Destroys a visual effect after a delay
+                    NetworkServer.Spawn(bulletImpact);
                 }
             }
         }
@@ -107,6 +109,7 @@ public class Shooting : NetworkBehaviour
                 //Makes visual FX visible
                 bulletImpact = Instantiate(shotgunBulletImpactPrefab, mainHitPoint, hitObjectRotation);
                 StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
+                NetworkServer.Spawn(bulletImpact);
 
                 checkRaycast(hitCol); //Check if Hidden was hit
 
@@ -131,6 +134,7 @@ public class Shooting : NetworkBehaviour
                         {
                             bulletImpact = Instantiate(shotgunBulletImpactPrefab, hitPoint, hitObjectRotation); //Instantiate shotgunBulletImpactPrefab at hitPoint
                             StartCoroutine(destroyVisualFX(bulletImpact, shotgunBulletImpactLifetime)); //Destroys a visual effect after a delay
+                            NetworkServer.Spawn(bulletImpact);
                         }
                     }
 
