@@ -53,7 +53,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
-            m_Camera.enabled = false; //This disbaels the camera for the server so each local player see their own unique first perosn view
+            m_Camera.enabled = false; //This disables the camera for the server so each local player see their own unique first perosn view
 
             if (isLocalPlayer)
             {
