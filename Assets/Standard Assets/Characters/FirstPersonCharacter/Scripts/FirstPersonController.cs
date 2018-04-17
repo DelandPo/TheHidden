@@ -10,13 +10,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
-        [SerializeField] public bool m_IsWalking;
-        [SerializeField] public bool m_Crouching;
-        [SerializeField] public float m_WalkSpeed;
-        [SerializeField] public float m_RunSpeed;
-        [SerializeField] public bool m_CanFire;
+        [SerializeField] private bool m_IsWalking;
+        [SerializeField] private float m_WalkSpeed;
+        [SerializeField] private float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
-        [SerializeField] public float m_JumpSpeed;
+        [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
         [SerializeField] private float m_GravityMultiplier;
         [SerializeField] private MouseLook m_MouseLook;
@@ -32,7 +30,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Camera m_Camera;
         private bool m_Jump;
-        private bool m_Crouch;
         private float m_YRotation;
         private Vector2 m_Input;
         private Vector3 m_MoveDir = Vector3.zero;
@@ -43,8 +40,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
-        public float m_CrouchValue;
-        private float m_initialHeight;
         private AudioSource m_AudioSource;
 
         // Use this for initialization
@@ -58,11 +53,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
-            m_Crouching = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
-            m_initialHeight = m_CharacterController.height;
-            m_CrouchValue = 0.4f;
         }
 
 
@@ -74,11 +66,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
-
-            if (!m_Crouch)
-            {
-                m_Crouching = CrossPlatformInputManager.GetButton("Fire1");
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -120,27 +107,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_MoveDir.x = desiredMove.x*speed;
             m_MoveDir.z = desiredMove.z*speed;
-
-            if (m_Crouching)
-            {
-                m_Crouch = true;
-                m_CharacterController.height = m_CrouchValue;
-                if (CrossPlatformInputManager.GetButtonUp("Fire1"))
-                {
-                    m_Crouching = false;
-                    m_Crouch = false;
-                    m_CharacterController.height = m_initialHeight;
-                }
-            }
-
-            if (!m_IsWalking)
-            {
-                m_CanFire = false;
-            }
-            else
-            {
-                m_CanFire = true;
-            }
 
 
             if (m_CharacterController.isGrounded)
@@ -222,7 +188,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
+                                      (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
             }
@@ -244,13 +210,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             bool waswalking = m_IsWalking;
 
 #if !MOBILE_INPUT
-
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
             // set the desired speed to be walking or running
-            speed = m_IsWalking || m_Crouching ? m_WalkSpeed : m_RunSpeed;
+            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
@@ -261,9 +226,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
-            if ((m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0) && !m_Crouching)
+            if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0)
             {
-                print("FovKicked?");
                 StopAllCoroutines();
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }

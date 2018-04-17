@@ -38,7 +38,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4129045225754022}
   - component: {fileID: 33287598043832992}
-  - component: {fileID: 65291440223114484}
   - component: {fileID: 23714370458275984}
   - component: {fileID: 114449422735726358}
   - component: {fileID: 143299769611182464}
@@ -61,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874837176278230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4308387753211658}
@@ -75,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1494795024970612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4129045225754022}
@@ -157,19 +156,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874837176278230}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65291440223114484
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874837176278230}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Mesh: {fileID: 4300014, guid: 6b0a75c5c9db591449d3d992a8c5695f, type: 3}
 --- !u!81 &81934077116322000
 AudioListener:
   m_ObjectHideFlags: 1
@@ -271,13 +258,13 @@ MonoBehaviour:
   m_Camera: {fileID: 20305839508267006}
   m_IsWalking: 0
   m_Crouching: 0
-  m_WalkSpeed: 1
-  m_RunSpeed: 2
+  m_WalkSpeed: 2
+  m_RunSpeed: 3.5
   m_CanFire: 0
   m_RunstepLenghten: 0
-  m_JumpSpeed: 0
+  m_JumpSpeed: 3
   m_StickToGroundForce: 0
-  m_GravityMultiplier: 0
+  m_GravityMultiplier: 1
   m_MouseLook:
     XSensitivity: 2
     YSensitivity: 2
@@ -466,10 +453,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
+  m_Height: 1.8
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}

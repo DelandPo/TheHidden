@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Arms_fingers
+  m_Mask: 01000000000000000000000000000000000000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_LeftUpLeg
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_LeftUpLeg/soldier_LeftLeg
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_LeftUpLeg/soldier_LeftLeg/soldier_LeftFoot
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_LeftUpLeg/soldier_LeftLeg/soldier_LeftFoot/soldier_LeftToeBase
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_RightUpLeg
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_RightUpLeg/soldier_RightLeg
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_RightUpLeg/soldier_RightLeg/soldier_RightFoot
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_RightUpLeg/soldier_RightLeg/soldier_RightFoot/soldier_RightToeBase
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_Spine
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandIndex1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandIndex1/soldier_LeftHandIndex2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandIndex1/soldier_LeftHandIndex2/soldier_LeftHandIndex3
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandMiddle1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandMiddle1/soldier_LeftHandMiddle2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandMiddle1/soldier_LeftHandMiddle2/soldier_LeftHandMiddle3
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandPinky1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandPinky1/soldier_LeftHandPinky2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandPinky1/soldier_LeftHandPinky2/soldier_LeftHandPinky3
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandRing1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandRing1/soldier_LeftHandRing2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandRing1/soldier_LeftHandRing2/soldier_LeftHandRing3
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandThumb1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandThumb1/soldier_LeftHandThumb2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_LeftShoulder/soldier_LeftArm/soldier_LeftForeArm/soldier_LeftHand/soldier_LeftHandThumb1/soldier_LeftHandThumb2/soldier_LeftHandThumb3
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_Neck
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_Neck/soldier_Neck1
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_Neck/soldier_Neck1/soldier_Head
+    m_Weight: 0
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandIndex1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandIndex1/soldier_RightHandIndex2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandIndex1/soldier_RightHandIndex2/soldier_RightHandIndex3
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandMiddle1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandMiddle1/soldier_RightHandMiddle2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandMiddle1/soldier_RightHandMiddle2/soldier_RightHandMiddle3
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandPinky1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandPinky1/soldier_RightHandPinky2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandPinky1/soldier_RightHandPinky2/soldier_RightHandPinky3
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandRing1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandRing1/soldier_RightHandRing2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandRing1/soldier_RightHandRing2/soldier_RightHandRing3
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandThumb1
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandThumb1/soldier_RightHandThumb2
+    m_Weight: 1
+  - m_Path: Armature/soldier_Hips/soldier_Spine/soldier_Spine1/soldier_Spine2/soldier_RightShoulder/soldier_RightArm/soldier_RightForeArm/soldier_RightHand/soldier_RightHandThumb1/soldier_RightHandThumb2/soldier_RightHandThumb3
+    m_Weight: 1
+  - m_Path: Shotgun_final_Cylinder_000
+    m_Weight: 0
+  - m_Path: Shotgun_final_Cylinder_001
+    m_Weight: 0
+  - m_Path: Shotgun_final_Cylinder_001/Pump
+    m_Weight: 0
+  - m_Path: Shotgun_final_Cylinder_001/Pump/Bone
+    m_Weight: 0
+  - m_Path: Shotgun_final_Cylinder_001/Pump/Bone/Bone_end
+    m_Weight: 0
+  - m_Path: solder_mesh
+    m_Weight: 1

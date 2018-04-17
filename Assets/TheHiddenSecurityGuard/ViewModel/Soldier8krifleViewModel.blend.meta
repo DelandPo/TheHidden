@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: cf1632fa815d85545a8e2b482b38f1c8
+timeCreated: 1522960056
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bolt
+    100004: dustcover
+    100006: mag
+    100008: Mesh_0011
+    100010: Mesh_0012
+    100012: Mesh_0013
+    100014: Mesh_0014
+    100016: solder_mesh
+    100018: //RootNode
+    100020: soldier_Head
+    100022: soldier_Hips
+    100024: soldier_LeftArm
+    100026: soldier_LeftFoot
+    100028: soldier_LeftForeArm
+    100030: soldier_LeftHand
+    100032: soldier_LeftHandIndex1
+    100034: soldier_LeftHandIndex2
+    100036: soldier_LeftHandIndex3
+    100038: soldier_LeftHandMiddle1
+    100040: soldier_LeftHandMiddle2
+    100042: soldier_LeftHandMiddle3
+    100044: soldier_LeftHandPinky1
+    100046: soldier_LeftHandPinky2
+    100048: soldier_LeftHandPinky3
+    100050: soldier_LeftHandRing1
+    100052: soldier_LeftHandRing2
+    100054: soldier_LeftHandRing3
+    100056: soldier_LeftHandThumb1
+    100058: soldier_LeftHandThumb2
+    100060: soldier_LeftHandThumb3
+    100062: soldier_LeftLeg
+    100064: soldier_LeftShoulder
+    100066: soldier_LeftToeBase
+    100068: soldier_LeftUpLeg
+    100070: soldier_Neck
+    100072: soldier_Neck1
+    100074: soldier_RightArm
+    100076: soldier_RightFoot
+    100078: soldier_RightForeArm
+    100080: soldier_RightHand
+    100082: soldier_RightHandIndex1
+    100084: soldier_RightHandIndex2
+    100086: soldier_RightHandIndex3
+    100088: soldier_RightHandMiddle1
+    100090: soldier_RightHandMiddle2
+    100092: soldier_RightHandMiddle3
+    100094: soldier_RightHandPinky1
+    100096: soldier_RightHandPinky2
+    100098: soldier_RightHandPinky3
+    100100: soldier_RightHandRing1
+    100102: soldier_RightHandRing2
+    100104: soldier_RightHandRing3
+    100106: soldier_RightHandThumb1
+    100108: soldier_RightHandThumb2
+    100110: soldier_RightHandThumb3
+    100112: soldier_RightLeg
+    100114: soldier_RightShoulder
+    100116: soldier_RightToeBase
+    100118: soldier_RightUpLeg
+    100120: soldier_Spine
+    100122: soldier_Spine1
+    100124: soldier_Spine2
+    400000: Armature
+    400002: Bolt
+    400004: dustcover
+    400006: mag
+    400008: Mesh_0011
+    400010: Mesh_0012
+    400012: Mesh_0013
+    400014: Mesh_0014
+    400016: solder_mesh
+    400018: //RootNode
+    400020: soldier_Head
+    400022: soldier_Hips
+    400024: soldier_LeftArm
+    400026: soldier_LeftFoot
+    400028: soldier_LeftForeArm
+    400030: soldier_LeftHand
+    400032: soldier_LeftHandIndex1
+    400034: soldier_LeftHandIndex2
+    400036: soldier_LeftHandIndex3
+    400038: soldier_LeftHandMiddle1
+    400040: soldier_LeftHandMiddle2
+    400042: soldier_LeftHandMiddle3
+    400044: soldier_LeftHandPinky1
+    400046: soldier_LeftHandPinky2
+    400048: soldier_LeftHandPinky3
+    400050: soldier_LeftHandRing1
+    400052: soldier_LeftHandRing2
+    400054: soldier_LeftHandRing3
+    400056: soldier_LeftHandThumb1
+    400058: soldier_LeftHandThumb2
+    400060: soldier_LeftHandThumb3
+    400062: soldier_LeftLeg
+    400064: soldier_LeftShoulder
+    400066: soldier_LeftToeBase
+    400068: soldier_LeftUpLeg
+    400070: soldier_Neck
+    400072: soldier_Neck1
+    400074: soldier_RightArm
+    400076: soldier_RightFoot
+    400078: soldier_RightForeArm
+    400080: soldier_RightHand
+    400082: soldier_RightHandIndex1
+    400084: soldier_RightHandIndex2
+    400086: soldier_RightHandIndex3
+    400088: soldier_RightHandMiddle1
+    400090: soldier_RightHandMiddle2
+    400092: soldier_RightHandMiddle3
+    400094: soldier_RightHandPinky1
+    400096: soldier_RightHandPinky2
+    400098: soldier_RightHandPinky3
+    400100: soldier_RightHandRing1
+    400102: soldier_RightHandRing2
+    400104: soldier_RightHandRing3
+    400106: soldier_RightHandThumb1
+    400108: soldier_RightHandThumb2
+    400110: soldier_RightHandThumb3
+    400112: soldier_RightLeg
+    400114: soldier_RightShoulder
+    400116: soldier_RightToeBase
+    400118: soldier_RightUpLeg
+    400120: soldier_Spine
+    400122: soldier_Spine1
+    400124: soldier_Spine2
+    2100000: Tex_0011_1_dds_003
+    2100002: Tex_0012_1_dds_001
+    2100004: Tex_0011_1_dds_004
+    2100006: Tex_0011_1_dds_005
+    2100008: unnamed
+    2300000: Bolt
+    2300002: dustcover
+    2300004: mag
+    2300006: Mesh_0011
+    2300008: Mesh_0012
+    2300010: Mesh_0013
+    2300012: Mesh_0014
+    3300000: Bolt
+    3300002: dustcover
+    3300004: mag
+    3300006: Mesh_0011
+    3300008: Mesh_0012
+    3300010: Mesh_0013
+    3300012: Mesh_0014
+    4300000: mag
+    4300002: Mesh_0012
+    4300004: Mesh_0011
+    4300006: Mesh_0014
+    4300008: Mesh_0013
+    4300010: dustcover
+    4300012: Bolt
+    4300014: solder_mesh
+    7400000: Default Take
+    7400002: AimingWrifle
+    7400004: CrouchWRifle
+    7400006: JumpingWRifle
+    7400008: JumpWRifle
+    7400010: ReloadWRifle
+    7400012: RunningWrifle
+    7400014: RunningWRifle
+    7400016: ShootingWrifle
+    7400018: walkingWrifle
+    7400020: WalkingWRifle
+    7400022: WeaponSwitch
+    9500000: //RootNode
+    13700000: solder_mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

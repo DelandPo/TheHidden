@@ -90,7 +90,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                 if (!m_Crouch)
                 {
-                    m_Crouching = CrossPlatformInputManager.GetButton("Fire1");
+                    m_Crouching = CrossPlatformInputManager.GetButton("Crouch");
                 }
 
                 if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -143,7 +143,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 {
                     m_Crouch = true;
                     m_CharacterController.height = m_CrouchValue;
-                    if (CrossPlatformInputManager.GetButtonUp("Fire1"))
+                    if (CrossPlatformInputManager.GetButtonUp("Crouch"))
                     {
                         m_Crouching = false;
                         m_Crouch = false;
