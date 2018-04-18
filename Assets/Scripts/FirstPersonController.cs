@@ -50,6 +50,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public Animator HiddenAnimator;
 
+        
+
         // Use this for initialization
         private void Start()
         {
@@ -57,6 +59,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (isLocalPlayer)
             {
+
                 m_CharacterController = GetComponent<CharacterController>();
                 m_OriginalCameraPosition = m_Camera.transform.localPosition;
                 m_FovKick.Setup(m_Camera);
