@@ -10,17 +10,13 @@ public class AssignState : NetworkBehaviour
     // Server assigns the state of player prefab
     
     [SyncVar(hook = "playerState")]
-    public static int state;
-
-    [SyncVar(hook = "consumedState")]
-    public static bool consumed = false;
+    public static bool hiddenState;
 
     void Update()
     {
-        if(consumed == true)
+        if(hiddenState == true)
         {
-            System.Random rnd = new System.Random();
-            state = rnd.Next(0, 2);
+            hiddenState = false;
         }
     }
 

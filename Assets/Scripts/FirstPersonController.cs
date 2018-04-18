@@ -7,30 +7,55 @@ using UnityEngine.Networking;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
-    [RequireComponent(typeof (CharacterController))]
-    [RequireComponent(typeof (AudioSource))]
+    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(AudioSource))]
     public class FirstPersonController : NetworkBehaviour
     {
-        [SerializeField] public Camera m_Camera;
-        [SerializeField] public bool m_IsWalking;
-        [SerializeField] public bool m_Crouching;
-        [SerializeField] public float m_WalkSpeed;
-        [SerializeField] public float m_RunSpeed;
-        [SerializeField] public bool m_CanFire;
-        [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
-        [SerializeField] public float m_JumpSpeed;
-        [SerializeField] private float m_StickToGroundForce;
-        [SerializeField] private float m_GravityMultiplier;
-        [SerializeField] private MouseLook m_MouseLook;
-        [SerializeField] private bool m_UseFovKick;
-        [SerializeField] private FOVKick m_FovKick = new FOVKick();
-        [SerializeField] private bool m_UseHeadBob;
-        [SerializeField] private CurveControlledBob m_HeadBob = new CurveControlledBob();
-        [SerializeField] private LerpControlledBob m_JumpBob = new LerpControlledBob();
-        [SerializeField] private float m_StepInterval;
-        [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
-        [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
-        [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+
+        [SyncVar(hook = "playerState")]
+        public static bool firstHiddenPlayer = false;
+
+        [SerializeField]
+        public Camera m_Camera;
+        [SerializeField]
+        public bool m_IsWalking;
+        [SerializeField]
+        public bool m_Crouching;
+        [SerializeField]
+        public float m_WalkSpeed;
+        [SerializeField]
+        public float m_RunSpeed;
+        [SerializeField]
+        public bool m_CanFire;
+        [SerializeField]
+        [Range(0f, 1f)]
+        private float m_RunstepLenghten;
+        [SerializeField]
+        public float m_JumpSpeed;
+        [SerializeField]
+        private float m_StickToGroundForce;
+        [SerializeField]
+        private float m_GravityMultiplier;
+        [SerializeField]
+        private MouseLook m_MouseLook;
+        [SerializeField]
+        private bool m_UseFovKick;
+        [SerializeField]
+        private FOVKick m_FovKick = new FOVKick();
+        [SerializeField]
+        private bool m_UseHeadBob;
+        [SerializeField]
+        private CurveControlledBob m_HeadBob = new CurveControlledBob();
+        [SerializeField]
+        private LerpControlledBob m_JumpBob = new LerpControlledBob();
+        [SerializeField]
+        private float m_StepInterval;
+        [SerializeField]
+        private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
+        [SerializeField]
+        private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
+        [SerializeField]
+        private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
         private bool m_Jump;
         private bool m_Crouch;
@@ -50,7 +75,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public Animator HiddenAnimator;
 
-        
+        public bool isHidden;
+
 
         // Use this for initialization
         private void Start()
@@ -59,7 +85,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (isLocalPlayer)
             {
-
+                // If 
+                if (!firstHiddenPlayer)
+                {
+                    isHidden = true;
+                    firstHiddenPlayer = true;
+                }
                 m_CharacterController = GetComponent<CharacterController>();
                 m_OriginalCameraPosition = m_Camera.transform.localPosition;
                 m_FovKick.Setup(m_Camera);
@@ -78,6 +109,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+         
             if (isLocalPlayer)
             {
                 if (!m_Camera.enabled) //Prevents camera view from being switched to the view of the player who joined last
