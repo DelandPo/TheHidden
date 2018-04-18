@@ -29,9 +29,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
 
-        public Animator HiddenAnimator;
-        private bool attacking = false;
-        private float attack = 0;
 
 		void Start()
 		{
@@ -124,11 +121,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
 			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 			m_Animator.SetBool("Crouch", m_Crouching);
-            m_Animator.SetBool("OnGround", m_IsGrounded);
-            
-
-
-            updateHiddenAnimator(move);
+			m_Animator.SetBool("OnGround", m_IsGrounded);
 			if (!m_IsGrounded)
 			{
 				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
@@ -157,58 +150,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				// don't use that while airborne
 				m_Animator.speed = 1;
 			}
-            
+		}
 
-        }
-
-        void updateHiddenAnimator(Vector3 move)
-        {
-            if (Input.GetKeyUp(KeyCode.L) || Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.J))
-                attacking = false;
-           float Attacking = AttackingDetector();
-            if (Attacking > -1)
-            {
-                attacking = true;
-                attack = Attacking;
-            }
-                
-            HiddenAnimator.SetFloat("Movement", m_ForwardAmount);
-
-            HiddenAnimator.SetBool("Crouching", m_Crouching);
-
-            HiddenAnimator.SetBool("OnGround", m_IsGrounded);
-            if(attacking)
-                HiddenAnimator.SetFloat("Attacks", attack);
-
-            HiddenAnimator.SetBool("Attacking", attacking);
-
-
-            if (!m_IsGrounded)
-            {
-                if(m_Rigidbody.velocity.y > 0)
-                    HiddenAnimator.SetFloat("Jumping", -1);
-                else
-                    HiddenAnimator.SetFloat("Jumping", 0);
-            }
-            else
-                HiddenAnimator.SetFloat("Jumping", 1);
-
-
-        }
-
-        float AttackingDetector()
-        {
-
-            if (Input.GetKeyDown(KeyCode.J))
-                return 0;
-            else if (Input.GetKeyDown(KeyCode.K))
-                return 2;
-            else if (Input.GetKeyDown(KeyCode.L))
-                return 1;
-            else 
-                return -1;
-            
-        }
 
 		void HandleAirborneMovement()
 		{

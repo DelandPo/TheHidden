@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class Health : NetworkBehaviour
 {
 
-    [SyncVar]
+    [SyncVar(hook = "checkDeath")]
     public int health;
 
     // Use this for initialization
@@ -38,4 +38,12 @@ public class Health : NetworkBehaviour
         health = health + x;
 
     }//end IncreaseHealth
+
+    void checkDeath(int health)
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }//end Health

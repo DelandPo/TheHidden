@@ -147,8 +147,9 @@ public class Shooting : NetworkBehaviour
     //Checks if the Hidden was hit (requires that Hidden to be tagged as "Hidden"
     private void checkRaycast(Collider col)
     {
-        if (col.CompareTag("Hidden"))
+        if (col.CompareTag("Player"))
         {
+            col.GetComponent<Health>().DecreaseHealth(25);
             //Damage Hidden
             Debug.Log("Damaged the Hidden");
         }

@@ -47,9 +47,11 @@ GameObject:
   - component: {fileID: 114574956723629394}
   - component: {fileID: 114551526745748414}
   - component: {fileID: 114796033857832656}
+  - component: {fileID: 114062721573528216}
+  - component: {fileID: 64362565391690044}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +160,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874837176278230}
   m_Mesh: {fileID: 4300014, guid: 6b0a75c5c9db591449d3d992a8c5695f, type: 3}
+--- !u!64 &64362565391690044
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874837176278230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300014, guid: 6b0a75c5c9db591449d3d992a8c5695f, type: 3}
 --- !u!81 &81934077116322000
 AudioListener:
   m_ObjectHideFlags: 1
@@ -245,6 +261,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114062721573528216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874837176278230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560a121dd7eb4e44f98f39dd8568c805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!114 &114449422735726358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,11 +287,11 @@ MonoBehaviour:
   m_Camera: {fileID: 20305839508267006}
   m_IsWalking: 0
   m_Crouching: 0
-  m_WalkSpeed: 2
-  m_RunSpeed: 3.5
+  m_WalkSpeed: 7.5
+  m_RunSpeed: 10
   m_CanFire: 0
   m_RunstepLenghten: 0
-  m_JumpSpeed: 3
+  m_JumpSpeed: 5
   m_StickToGroundForce: 0
   m_GravityMultiplier: 1
   m_MouseLook:
