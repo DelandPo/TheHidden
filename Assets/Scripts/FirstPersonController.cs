@@ -13,7 +13,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
 
         [SyncVar(hook = "playerState")]
-        public static bool firstHiddenPlayer = false;
+        public bool firstHiddenPlayer = false;
 
         [SerializeField]
         public Camera m_Camera;
