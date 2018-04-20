@@ -75,6 +75,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public Animator HiddenAnimator;
 
+        //Identity of the the player
         public bool isHidden;
 
 
