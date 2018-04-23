@@ -12,9 +12,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
     public class FirstPersonController : NetworkBehaviour
     {
 
-        [SyncVar(hook = "playerState")]
-        public bool firstHiddenPlayer = false;
-
         [SerializeField]
         public Camera m_Camera;
         [SerializeField]
@@ -84,14 +81,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             m_Camera.enabled = false; //This disables the camera for the server so each local player see their own unique first perosn view
 
-            if (isLocalPlayer)
+            if (isServer)
             {
-                // If 
-                if (!firstHiddenPlayer)
+                if (!isHidden)
                 {
                     isHidden = true;
-                    firstHiddenPlayer = true;
                 }
+            }
+
+            if (isLocalPlayer)
+            {             
                 m_CharacterController = GetComponent<CharacterController>();
                 m_OriginalCameraPosition = m_Camera.transform.localPosition;
                 m_FovKick.Setup(m_Camera);
