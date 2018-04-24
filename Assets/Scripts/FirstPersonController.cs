@@ -86,6 +86,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (!isHidden)
                 {
                     isHidden = true;
+                    gameObject.tag = "Hidden";
                 }
             }
 
