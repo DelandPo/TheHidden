@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityStandardAssets.CrossPlatformInput;
 
 //****************************************************************************
 // Notes: 
@@ -43,7 +44,7 @@ public class WallCling : NetworkBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown("f"))
+        if (CrossPlatformInputManager.GetButton("Cling"))
         {
             //Press key again to get off wall
             if (cling)
@@ -54,7 +55,7 @@ public class WallCling : NetworkBehaviour
             {
                 RaycastHit ray;
 
-                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out ray, range) && !cling && ray.transform.tag == "sticky")
+                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out ray, range) && !cling && ray.transform.tag != "Nonstick")
                 {
 
                     cling = true;
