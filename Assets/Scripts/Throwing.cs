@@ -19,7 +19,7 @@ public class Throwing : NetworkBehaviour {
 
     Vector3 grenadePos;
 
-	void Update () {
+	void FixedUpdate () {
 
         if (CrossPlatformInputManager.GetButtonDown("Throw"))
         {

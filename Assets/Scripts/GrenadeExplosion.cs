@@ -16,30 +16,27 @@ public class GrenadeExplosion : NetworkBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-
         Debug.Log("CollisionEnter");
 
-        ContactPoint contact = collision.contacts[0];
-        Vector3 center = contact.point;
+        //Instantiate(explosion, transform.position, transform.rotation);       //Uncomment what particle effect is added
 
-        Collider[] hitColliders = Physics.OverlapSphere(center, radius);
-        int i = 0;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
-       
-        while (i < hitColliders.Length)
+        foreach(Collider nearbyPlayer in colliders)
         {
-
-            hitColliders[i].GetComponent<Health>().DecreaseHealth(damage);
-            i++;
-
-            /*
-            if(hitColliders[i].tag != "Hidden")     //Only damages Security players
+            if(nearbyPlayer.gameObject.tag == "Hidden")
             {
+                Health targetHealth = nearbyPlayer.GetComponent<Health>();
 
-            }//end if
-            */
-        }//end while
-        
+                if (targetHealth != null)
+                {
+                    targetHealth.DecreaseHealth(damage);
+                }
+            }
+            
+
+        }//end foreach
+
         Destroy(gameObject);
 
     }//end OnCollisionEnter
