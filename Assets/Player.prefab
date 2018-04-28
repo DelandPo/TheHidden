@@ -193,7 +193,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -250,7 +250,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Camera: {fileID: 20305839508267006}
   m_IsWalking: 0
   m_Crouching: 0
-  m_WalkSpeed: 7.5
+  m_WalkSpeed: 2
   m_RunSpeed: 10
   m_CanFire: 0
   m_RunstepLenghten: 0
@@ -363,7 +363,9 @@ MonoBehaviour:
     BobDuration: 0
     BobAmount: 0
   m_StepInterval: 0
-  m_FootstepSounds: []
+  m_FootstepSounds:
+  - {fileID: 8300000, guid: 7cc5fcc1b47103c4b94eba5320471823, type: 3}
+  - {fileID: 8300000, guid: 8d6ac8752db51584a87ca578f3a0bbf7, type: 3}
   m_JumpSound: {fileID: 0}
   m_LandSound: {fileID: 0}
   m_CrouchValue: 0
