@@ -52,7 +52,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField]
         private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField]
-        private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        private AudioClip m_LandSound;       // the sound played when character touches back on ground.
+        [SerializeField]
+        private AudioClip[] tookDamage;
+        [SerializeField]
+        private AudioClip deathCry;
 
         private bool m_Jump;
         private bool m_Crouch;
@@ -69,12 +73,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float m_CrouchValue;
         private float m_initialHeight;
         private AudioSource m_AudioSource;
-
+        private AudioSource[] playerAudioSource;
+     
+        
         public Animator HiddenAnimator;
 
         //Identity of the the player
         public bool isHidden;
 
+        public void PlayTookDamageClip()
+        {
+            playerAudioSource[1].PlayOneShot(tookDamage[0]);
+            playerAudioSource[1].PlayOneShot(tookDamage[1]);
+        }
+
+        public void PlayDeathCry()
+        {
+            playerAudioSource[1].PlayOneShot(tookDamage[0]);
+
+        }
 
         // Use this for initialization
         private void Start()
@@ -101,6 +118,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_Jumping = false;
                 m_Crouching = false;
                 m_AudioSource = GetComponent<AudioSource>();
+                playerAudioSource = GetComponents<AudioSource>();
                 m_MouseLook.Init(transform, m_Camera.transform);
                 m_initialHeight = m_CharacterController.height;
                 m_CrouchValue = 0.4f;
@@ -265,6 +283,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
                 // pick & play a random footstep sound from the array,
                 // excluding sound at index 0
+                m_AudioSource.volume = Random.Range(0.3f, 0.5f);
                 int n = Random.Range(1, m_FootstepSounds.Length);
                 m_AudioSource.clip = m_FootstepSounds[n];
                 m_AudioSource.PlayOneShot(m_AudioSource.clip);

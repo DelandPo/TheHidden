@@ -152,6 +152,7 @@ public class Shooting : NetworkBehaviour
             col.GetComponent<Health>().DecreaseHealth(25);
             //Damage Hidden
             Debug.Log("Damaged the Hidden");
+            col.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().PlayTookDamageClip();
         }
     }
 

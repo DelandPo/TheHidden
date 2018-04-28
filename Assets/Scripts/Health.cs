@@ -19,10 +19,13 @@ public class Health : NetworkBehaviour
     //Value being passed to DecreaseHealth must be a positive value
     public void DecreaseHealth(int x)
     {
+        /*
         if (!isServer)
         {
             return;
         }
+        */
+
         health = health - x;
 
     }//end DecreaseHealth
@@ -43,7 +46,8 @@ public class Health : NetworkBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
+            GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().PlayDeathCry();
+            //Destroy(gameObject);
         }
     }
 }//end Health
