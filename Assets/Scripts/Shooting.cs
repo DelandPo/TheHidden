@@ -44,6 +44,7 @@ public class Shooting : NetworkBehaviour
     //Fires equipped weapon
     private void CmdFireWeapon()
     {
+        GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().PlayGunSound();
         if (weaponEquipped == 1) //Pistol
         {
             RaycastHit hit;

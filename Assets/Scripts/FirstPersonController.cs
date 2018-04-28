@@ -93,6 +93,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         }
 
+        public void PlayGunSound()
+        {
+            playerAudioSource[2].Play();
+        }
+
         // Use this for initialization
         private void Start()
         {

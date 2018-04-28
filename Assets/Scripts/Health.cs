@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class Health : NetworkBehaviour
 {
-
+    public GameObject spawnLocation;
     [SyncVar(hook = "checkDeath")]
     public int health;
 
@@ -47,6 +47,9 @@ public class Health : NetworkBehaviour
         if (health <= 0)
         {
             GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().PlayDeathCry();
+            gameObject.transform.position = spawnLocation.transform.position;
+            IncreaseHealth(100);
+
             //Destroy(gameObject);
         }
     }
