@@ -389,5 +389,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 body.AddForceAtPosition(m_CharacterController.velocity * 0.1f, hit.point, ForceMode.Impulse);
             }
         }
+
+        private void Awake()
+        {
+            GameObject lobby = GameObject.FindGameObjectWithTag("LobbyMusic");
+            lobby.SetActive(false);
+            GameObject spawnMusic = GameObject.FindGameObjectWithTag("SpawnMusic");
+            spawnMusic.GetComponent<AudioSource>().PlayOneShot(spawnMusic.GetComponent<AudioSource>().clip);
+
+        }
     }
 }

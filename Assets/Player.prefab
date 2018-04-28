@@ -443,12 +443,12 @@ MonoBehaviour:
   m_JumpBob:
     BobDuration: 0
     BobAmount: 0
-  m_StepInterval: 2
+  m_StepInterval: 2.5
   m_FootstepSounds:
   - {fileID: 8300000, guid: ca3ef7edfcd2b994a9cb79bf80eafcf3, type: 3}
   - {fileID: 8300000, guid: ca3ef7edfcd2b994a9cb79bf80eafcf3, type: 3}
-  m_JumpSound: {fileID: 0}
-  m_LandSound: {fileID: 0}
+  m_JumpSound: {fileID: 8300000, guid: b82982983d520074480fb41a8f975d83, type: 3}
+  m_LandSound: {fileID: 8300000, guid: b0f965c3e8e291e4289fa0d02800da09, type: 3}
   tookDamage:
   - {fileID: 8300000, guid: 0a92201b35b4ec74f85399bf5f536669, type: 3}
   - {fileID: 8300000, guid: e9b6afe6f61bbe9439076e9d39eccfba, type: 3}
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194621a24f50f6f44904e05e6e40e312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponEquipped: 2
+  weaponEquipped: 1
   pistolRange: 100
   rifleRange: 100
   shotgunRange: 100
