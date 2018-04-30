@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 114796033857832656}
   - component: {fileID: 114062721573528216}
   - component: {fileID: 64362565391690044}
-  - component: {fileID: 114870609320610744}
   - component: {fileID: 114534873553044008}
   - component: {fileID: 82072414747086666}
   - component: {fileID: 82289507256683688}
@@ -436,7 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560a121dd7eb4e44f98f39dd8568c805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnLocation: {fileID: 0}
+  spawnLocation: {fileID: 1490400927198424, guid: 151b275ca1ed81b4ba73fcf4e758ad68,
+    type: 2}
   health: 0
 --- !u!114 &114449422735726358
 MonoBehaviour:
@@ -667,17 +667,6 @@ MonoBehaviour:
   range: 1
   player: {fileID: 1874837176278230}
   cling: 0
---- !u!114 &114870609320610744
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874837176278230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9055a607dd776946bbd8fe573852200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!124 &124131622926962066
 Behaviour:
   m_ObjectHideFlags: 1

@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class Health : NetworkBehaviour
 {
     public GameObject spawnLocation;
-    [SyncVar(hook = "checkDeath")]
+    //[SyncVar(hook = "checkDeath")]
     public int health;
 
     // Use this for initialization
@@ -28,6 +28,8 @@ public class Health : NetworkBehaviour
 
         health = health - x;
 
+        checkDeath(health);
+
     }//end DecreaseHealth
 
     //Value being passed to IncreaseHealth must be a positive value
@@ -38,6 +40,7 @@ public class Health : NetworkBehaviour
         {
             return;
         }
+        
         health = health + x;
 
     }//end IncreaseHealth
